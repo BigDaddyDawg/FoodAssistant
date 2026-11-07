@@ -1,10 +1,10 @@
 {
-  "id": "/FoodAssistant/",
+  "id": "/FoodAssistant/larder/",
   "name": "Larder",
   "short_name": "Larder",
   "description": "What is in the fridge, freezer, and cupboard.",
-  "start_url": "/FoodAssistant/",
-  "scope": "/FoodAssistant/",
+  "start_url": "/FoodAssistant/larder/",
+  "scope": "/FoodAssistant/larder/",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#d5e2d6",

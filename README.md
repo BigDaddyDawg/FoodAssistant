@@ -2,7 +2,9 @@
 
 The household food list. Fridge, freezer, and cupboard, on the wall tablet and on a phone.
 
-Live: https://bigdaddydawg.github.io/FoodAssistant/
+Live: https://bigdaddydawg.github.io/FoodAssistant/larder/ (the old address forwards there)
+
+The app itself lives in `larder/`. It sits in its own folder so Android installs it as a fresh app.
 
 ## What you do with it
 

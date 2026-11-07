@@ -1,59 +1,14 @@
-var CACHE = "larder-3";
-var FILES = [
-  "./",
-  "index.html",
-  "add.html",
-  "styles.css",
-  "app.js",
-  "add.js",
-  "store.js",
-  "receipt.js",
-  "config.js",
-  "manifest.webmanifest",
-  "icon.svg",
-  "icon-192.png",
-  "icon-512.png"
-];
-
-self.addEventListener("install", function (event) {
-  event.waitUntil(
-    caches.open(CACHE).then(function (cache) {
-      return cache.addAll(FILES);
-    }).then(function () {
-      return self.skipWaiting();
-    })
-  );
-});
+/* Larder moved to /FoodAssistant/larder/. This retires the old worker at /FoodAssistant/. */
+self.addEventListener("install", function () { self.skipWaiting(); });
 
 self.addEventListener("activate", function (event) {
   event.waitUntil(
     caches.keys().then(function (keys) {
       return Promise.all(keys.filter(function (key) {
-        return key !== CACHE;
-      }).map(function (key) {
-        return caches.delete(key);
-      }));
+        return key.indexOf("larder-") === 0 && key !== "larder-4";
+      }).map(function (key) { return caches.delete(key); }));
     }).then(function () {
-      return self.clients.claim();
-    })
-  );
-});
-
-self.addEventListener("fetch", function (event) {
-  var url = new URL(event.request.url);
-  if (url.origin !== self.location.origin) return;
-  if (event.request.method !== "GET") return;
-  event.respondWith(
-    fetch(event.request).then(function (response) {
-      var copy = response.clone();
-      caches.open(CACHE).then(function (cache) {
-        cache.put(event.request, copy);
-      });
-      return response;
-    }).catch(function () {
-      return caches.match(event.request).then(function (cached) {
-        return cached || caches.match("index.html");
-      });
+      return self.registration.unregister();
     })
   );
 });

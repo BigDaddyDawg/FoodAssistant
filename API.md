@@ -4,7 +4,7 @@ This is the contract for a later home assistant. The assistant is not part of th
 
 Family database: `https://oaonarmpqybbvtldlusx.supabase.co`
 
-Send the public anon key from `config.js` on both headers below. That key is already in the repo. It is not a service-role secret.
+Send the public anon key from `larder/config.js` on both headers below. That key is already in the repo. It is not a service-role secret.
 
 ```http
 apikey: <anon key from config.js>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#d5e2d6">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Larder">
+  <title>Add food · Larder</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest?v=3">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="add-app">
+  <header class="top">
+    <a class="back" href="index.html">The list</a>
+    <div class="brand">
+      <p class="eyebrow"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span> Put food away</p>
+      <h1>Add to the larder</h1>
+    </div>
+  </header>
+  <div id="banner" class="banner" role="status" hidden></div>
+
+  <section class="panel scan-panel" id="scan-panel">
+    <h2>Scan a receipt</h2>
+    <p class="intro">Use the phone camera. The photo stays on this phone. Only the food names are saved.</p>
+    <input id="file" type="file" accept="image/*" capture="environment" hidden>
+    <button type="button" class="primary" id="scan">Photograph the receipt</button>
+    <p id="scan-status" class="form-msg" role="status"></p>
+    <div id="review"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Type an item</h2>
+    <p class="tablet-note">This screen is for typing. Scan the receipt on a phone. The wall tablet does not need a camera.</p>
+    <form id="form">
+      <label for="name">What is it?</label>
+      <input id="name" type="text" maxlength="120" autocomplete="off" enterkeyhint="next" placeholder="Semi-skimmed milk">
+
+      <p class="intro" style="margin-top:0.9rem;margin-bottom:0.4rem;font-weight:700;color:#241c15;">Where does it go?</p>
+      <div class="places" id="places" role="group" aria-label="Where it goes"></div>
+
+      <div class="qty-row">
+        <button type="button" id="minus" aria-label="Fewer">−</button>
+        <label for="quantity">How many
+          <input id="quantity" type="text" maxlength="40" value="1" inputmode="text">
+        </label>
+        <button type="button" id="plus" aria-label="More">+</button>
+      </div>
+
+      <p class="intro" style="margin-top:0.9rem;margin-bottom:0;">What kind, if it helps</p>
+      <div class="units" id="units"></div>
+
+      <p class="intro" style="margin-top:0.9rem;margin-bottom:0;">How full is it? Leave on Full for new food</p>
+      <div class="units" id="fill" role="group" aria-label="How full"></div>
+
+      <label for="notes">Note, if you need one</label>
+      <input id="notes" type="text" maxlength="280" autocomplete="off" placeholder="Open, or use first">
+
+      <button class="primary" type="submit">Put it away</button>
+      <p id="form-msg" class="form-msg" role="status"></p>
+    </form>
+  </section>
+
+  <script src="config.js"></script>
+  <script src="store.js"></script>
+  <script src="receipt.js"></script>
+  <script src="add.js"></script>
+</body>
+</html>
