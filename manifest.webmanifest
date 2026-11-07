@@ -1,0 +1,19 @@
+{
+  "name": "Larder",
+  "short_name": "Larder",
+  "description": "What is in the fridge, freezer, and cupboard.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#d5e2d6",
+  "theme_color": "#d5e2d6",
+  "lang": "en-GB",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
