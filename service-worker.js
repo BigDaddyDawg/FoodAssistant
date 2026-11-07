@@ -1,4 +1,4 @@
-var CACHE = "larder-2";
+var CACHE = "larder-3";
 var FILES = [
   "./",
   "index.html",
@@ -10,7 +10,9 @@ var FILES = [
   "receipt.js",
   "config.js",
   "manifest.webmanifest",
-  "icon.svg"
+  "icon.svg",
+  "icon-192.png",
+  "icon-512.png"
 ];
 
 self.addEventListener("install", function (event) {
